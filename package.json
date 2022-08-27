@@ -1,7 +1,7 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
-  "description": "",
+  "name": "patternfly4-solidjs",
+  "version": "0.0.1",
+  "description": "Patternfly 4 templates for SolidJS",
   "scripts": {
     "start": "vite",
     "dev": "vite",
