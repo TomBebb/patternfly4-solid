@@ -7,6 +7,7 @@ import TextContent from './TextContent';
 
 import Title from './Title';
 import Tooltip from './Tooltip';
+import Button from './Button';
 
 const App: Component = () => {
   return (
@@ -42,6 +43,10 @@ const App: Component = () => {
     <li>Ut non enim metus.</li>
 
     </ul>
+
+    <Button variant='primary'>Primary</Button>
+    <Button variant='secondary'>Secondary</Button>
+    <Button variant='tertiary'>tertiary</Button>
     <Hint actions={<div>Actions</div>}>
       <HintTitle>Do more with Find it Fix it capabilities</HintTitle>
       <HintBody>
