@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@patternfly/patternfly": "^4.206.3",
+    "@popperjs/core": "^2.11.6",
     "solid-js": "^1.5.1"
   }
 }

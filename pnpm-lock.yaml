@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@patternfly/patternfly': ^4.206.3
+  '@popperjs/core': ^2.11.6
   solid-js: ^1.5.1
   typescript: ^4.8.2
   vite: ^3.0.9
@@ -9,6 +10,7 @@ specifiers:
 
 dependencies:
   '@patternfly/patternfly': 4.206.3
+  '@popperjs/core': 2.11.6
   solid-js: 1.5.1
 
 devDependencies:
@@ -374,6 +376,10 @@ packages:
 
   /@patternfly/patternfly/4.206.3:
     resolution: {integrity: sha512-2Ar6qaZAozyx/KBzlqqskoEf45HUZIbk668qFwYHWaTkuucYw/usoxw03OwnGCS4GgBlMf06X2uonHgQLhVT8A==}
+    dev: false
+
+  /@popperjs/core/2.11.6:
+    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
 
   /ansi-styles/3.2.1:
