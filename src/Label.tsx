@@ -34,10 +34,15 @@ export default function Label(props: LabelProps) {
         'pf-m-editable-active': editing(),
         'pf-m-editable': props.isEditable,
         'pf-m-compact': props.isCompact,
-        ['pf-m-' + props.color]: true
+        ['pf-m-' + props.color]: true,
+        ['pf-m-' + props.variant]: true,
     }))
     function onKeyDown(e: KeyboardEvent) {
-        if (e.key !== 'Enter' || !editing()) {
+        if (e.key === 'Escape') {
+            setEditText(null)
+            return;
+        }
+        if (!(e.key === 'Enter')) {
             return;
         }
         props.editableProps!.onSubmit(editText() as string)
@@ -63,7 +68,7 @@ export default function Label(props: LabelProps) {
                 <input
                     class='pf-c-label__content'
                     value={editText()!}
-                    onChange={ev => props.editableProps!.onSubmit((ev.target as HTMLInputElement).value)} 
+                    onChange={ev => setEditText((ev.target as HTMLInputElement).value)} 
                 />
             </Match>
         </Switch>
