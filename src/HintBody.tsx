@@ -1,4 +1,3 @@
-import '@patternfly/patternfly/components/Hint/hint.css'
 
 import { children, JSXElement } from "solid-js";
 

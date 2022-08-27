@@ -1,6 +1,3 @@
-import '@patternfly/patternfly/components/Content/content.css'
-
-
 import { children, JSXElement } from 'solid-js';
 
 export interface TextContentProps {

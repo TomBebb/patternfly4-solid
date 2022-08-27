@@ -1,6 +1,4 @@
-
-import '@patternfly/patternfly/components/Title/title.css'
-import { Accessor, children, createMemo, JSXElement } from 'solid-js';
+import {  children, createMemo, JSXElement } from 'solid-js';
 import { Dynamic,  } from 'solid-js/web';
 
 export type HeadingLevelSize = 	'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
