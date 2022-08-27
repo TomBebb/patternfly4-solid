@@ -50,7 +50,7 @@ const App: Component = () => {
     <Hint actions={<div>Actions</div>}>
       <HintTitle>Do more with Find it Fix it capabilities</HintTitle>
       <HintBody>
-        Upgrade to Red Hat Smart Management to remediate all your systems across regions and geographies.
+        Upgrade to <Button variant='danger' isInline>Test</Button> Red Hat Smart Management to remediate all your systems across regions and geographies.
       </HintBody>
       <HintFooter>
           Try it for 90 days
