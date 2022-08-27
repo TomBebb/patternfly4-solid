@@ -12,7 +12,6 @@ import Label from './Label';
 
 const App: Component = () => {
   const [labelValue, setLabelValue] = createSignal("Hello, world of labels!");
-  createEffect(() => console.log('label', labelValue()))
   return (
     <div >
     <Label isEditable editableProps={{  onSubmit: setLabelValue,value: labelValue()}}>{labelValue()}</Label>
