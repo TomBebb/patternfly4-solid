@@ -1,4 +1,4 @@
-import type { Component } from 'solid-js';
+import { Component, createSignal } from 'solid-js';
 import Hint from './Hint';
 import HintBody from './HintBody';
 import HintFooter from './HintFooter';
@@ -8,10 +8,13 @@ import TextContent from './TextContent';
 import Title from './Title';
 import Tooltip from './Tooltip';
 import Button from './Button';
+import Label from './Label';
 
 const App: Component = () => {
+  const [labelValue, setLabelValue] = createSignal("Hello, world of labels!");
   return (
     <div >
+    <Label isEditable editableProps={{  onSubmit: setLabelValue,value: labelValue()}}>{labelValue()}</Label>
 
       <Tooltip
         content={
