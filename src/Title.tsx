@@ -1,6 +1,5 @@
 
 import '@patternfly/patternfly/components/Title/title.css'
-import '@patternfly/patternfly/patternfly-base.css'
 import { Accessor, children, createMemo, JSXElement } from 'solid-js';
 import { Dynamic,  } from 'solid-js/web';
 
