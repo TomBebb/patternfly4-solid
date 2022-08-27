@@ -1,4 +1,8 @@
 import type { Component } from 'solid-js';
+import Hint from './Hint';
+import HintBody from './HintBody';
+import HintFooter from './HintFooter';
+import HintTitle from './HintTitle';
 import TextContent from './TextContent';
 
 import Title from './Title';
@@ -34,22 +38,19 @@ const App: Component = () => {
     <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
     <li>
       Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.
-      <ul>
-        <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
-        <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
-        <li>
-          Ut venenatis, nisl scelerisque.
-          <ol>
-            <li>Donec blandit a lorem id convallis.</li>
-            <li>Cras gravida arcu at diam gravida gravida.</li>
-            <li>Integer in volutpat libero.</li>
-          </ol>
-        </li>
-      </ul>
     </li>
     <li>Ut non enim metus.</li>
 
     </ul>
+    <Hint actions={<div>Actions</div>}>
+      <HintTitle>Do more with Find it Fix it capabilities</HintTitle>
+      <HintBody>
+        Upgrade to Red Hat Smart Management to remediate all your systems across regions and geographies.
+      </HintBody>
+      <HintFooter>
+          Try it for 90 days
+      </HintFooter>
+    </Hint>
     </TextContent>
         <Title headingLevel='h1'>
           Hello, world!
