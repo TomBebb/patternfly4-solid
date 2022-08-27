@@ -9,11 +9,16 @@ import Title from './Title';
 import Tooltip from './Tooltip';
 import Button from './Button';
 import Label from './Label';
+import Select from './Select';
 
 const App: Component = () => {
   const [labelValue, setLabelValue] = createSignal("Hello, world of labels!");
   return (
     <div >
+      <Select options={[
+        {value: 'Hello, world!', id: ''},
+        {value: 'Hello, new world!', id: ''}
+      ]}></Select>
     <Label isEditable editableProps={{  onSubmit: setLabelValue,value: labelValue()}}>{labelValue()}</Label>
 
       <Tooltip
