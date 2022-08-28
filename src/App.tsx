@@ -1,22 +1,9 @@
 import { Component, createEffect, createSignal } from 'solid-js';
-import Hint from './Hint';
-import HintBody from './HintBody';
-import HintFooter from './HintFooter';
-import HintTitle from './HintTitle';
-import TextContent from './TextContent';
 
-import Title from './Title';
-import Tooltip from './Tooltip';
-import Button from './Button';
-import Label from './Label';
-import Select from './Select';
-import Wizard, { WizardHeader } from './Wizard';
-import Toolbar from './Toolbar/Toolbar';
-import ToolbarContent from './Toolbar/ToolbarContent';
-import ToolbarItem from './Toolbar/ToolbarItem';
-import { Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle } from './Masthead';
-import PageToggleButton from './Page/PageToggleButton';
-import Page from './Page/Page';
+import {Toolbar, ToolbarContent, ToolbarItem,
+  Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
+
+Page, PageToggleButton, PageSection, PageSectionVariants} from '.';
 
 const App: Component = () => {
   
@@ -59,9 +46,9 @@ const App: Component = () => {
   );
   return (
     <Page header={header} sidebar={sidebar}>
-      <PageSection variant={PageSectionVariants.darker}>Section with darker background</PageSection>
-      <PageSection variant={PageSectionVariants.dark}>Section with dark background</PageSection>
-      <PageSection variant={PageSectionVariants.light}>Section with light background</PageSection>
+      <PageSection variant='darker'>Section with darker background</PageSection>
+      <PageSection variant='dark'>Section with dark background</PageSection>
+      <PageSection variant='light'>Section with light background</PageSection>
     </Page>
   );
 };

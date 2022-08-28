@@ -3,6 +3,7 @@ import { children, JSXElement } from "solid-js";
 export  interface PageProps {
     children: JSXElement
     header: JSXElement
+    sidebar?: JSXElement
 }
 
 export default function Page(props: PageProps) {
