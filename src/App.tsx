@@ -15,9 +15,9 @@ const App: Component = () => {
   const [labelValue, setLabelValue] = createSignal("Hello, world of labels!");
   return (
     <div >
-      <Select options={[
-        {value: 'Hello, world!', id: ''},
-        {value: 'Hello, new world!', id: ''}
+      <Select onChange={v => console.log('select ', v)} options={[
+        {value: 'Hello, world!', label: () =><div>Hallo world!</div>},
+        {value: 'Hello, new world!', label: () => <div>Hello world</div>}
       ]}></Select>
     <Label isEditable editableProps={{  onSubmit: setLabelValue,value: labelValue()}}>{labelValue()}</Label>
 

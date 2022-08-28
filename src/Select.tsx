@@ -1,16 +1,16 @@
 import { Component, createEffect, createMemo, createSignal, For, Show, ValidComponent } from "solid-js"
 
 export interface SelectOption<TValue = any> {
-    item?: Component<{ value: TValue }>,
+    label: ValidComponent,
     description?: ValidComponent
-    id: string
     isDisabled?: boolean
     isPlaceholder?: boolean
     value: TValue
 }
 
-export interface SelectProps {
-    options: SelectOption[]
+export interface SelectProps<TValue = any> {
+    options: SelectOption<TValue>[]
+    onChange: (value: TValue) => void
 }
 export default function Select(props: SelectProps) {
     const [expanded, setExpanded] = createSignal(false);
@@ -19,12 +19,18 @@ export default function Select(props: SelectProps) {
         return i === -1 ? 0 : i;
     });
     const [optionIndex, setOptionIndex] = createSignal(placeholderIndex());
+
     const option = createMemo(() => props.options[optionIndex()]);
     const classes = createMemo(() => ({
         'pf-c-select': true,
         'pf-m-expanded': expanded()
     }));
-    createEffect(() => console.log('expanded', expanded()));
+    const menuClasses = createMemo(() => ({
+        'pf-c-select__menu': true,
+        'invisible': !expanded()
+    }))
+
+    createEffect(() => props.onChange(option().value))
     return <div classList={classes()} onClick={() => setExpanded(!expanded())}>
 
         <button
@@ -37,7 +43,6 @@ export default function Select(props: SelectProps) {
         >
             <div class="pf-c-select__toggle-wrapper">
                 <span class="pf-c-select__toggle-text">
-
                     {option().value}
                 </span>
             </div>
@@ -46,54 +51,38 @@ export default function Select(props: SelectProps) {
             </span>
         </button>
 
-        <Show when={expanded()}>
+        <ul
+            classList={menuClasses()}
+            role="listbox"
+        >
 
-            <ul
-                class="pf-c-select__menu"
-                role="listbox"
-                aria-labelledby="select-single-expanded-label"
-            >
-               <For each={props.options}>{item =>
-                
-                <li role="presentation">
+            <For each={props.options}>{(item, index) => {
+                const isCurr = createMemo<boolean>(() => index() === optionIndex());
+                return <li role="presentation">
 
-                    <Show when={item.value === option().value}>
-                        
-                    </Show>
-                    <button classList={{
-                        "pf-c-select__menu-item": true,
-                        "pf-m-selected": item.value === option().value
-               }} role="option">
-                        {item.value}
-                    </button>
-                </li>
-               }
-                </For> 
-                <li role="presentation">
-                    <button class="pf-c-select__menu-item" role="option">Running</button>
-                </li>
-                <li role="presentation">
                     <button
-                        class="pf-c-select__menu-item pf-m-selected"
+                        classList={{
+                            "pf-c-select__menu-item": true,
+                            "pf-m-selected": isCurr()
+                        }}
+
+                        aria-selected={isCurr()}
                         role="option"
-                        aria-selected="true"
+
+                        onClick={() => setOptionIndex(index())}
                     >
-                        Stopped
-                        <span class="pf-c-select__menu-item-icon">
-                            <i class="fas fa-check" aria-hidden="true"></i>
-                        </span>
+                        {item.value}
+
+                        <Show when={isCurr()}>
+
+                            <span class="pf-c-select__menu-item-icon">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                            </span>
+                        </Show>
                     </button>
                 </li>
-                <li role="presentation">
-                    <button class="pf-c-select__menu-item" role="option">Down</button>
-                </li>
-                <li role="presentation">
-                    <button class="pf-c-select__menu-item" role="option">Degraded</button>
-                </li>
-                <li role="presentation">
-                    <button class="pf-c-select__menu-item" role="option">Needs maintenance</button>
-                </li>
-            </ul>
-        </Show>
+            }}
+            </For>
+        </ul>
     </div>
 }
