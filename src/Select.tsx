@@ -1,21 +1,26 @@
 import { Component, createEffect, createMemo, createSignal, For, Show, ValidComponent } from "solid-js"
+import { Dynamic } from "solid-js/web"
 
 export interface SelectOption<TValue = any> {
-    label: ValidComponent,
-    description?: ValidComponent
+    label: string,
+    description?: string
     isDisabled?: boolean
     isPlaceholder?: boolean
-    value: TValue
+    value: TValue,
+    disabled?: boolean
 }
 
-export interface SelectProps<TValue = any> {
-    options: SelectOption<TValue>[]
-    onChange: (value: TValue) => void
+export interface SelectProps<TItem = any> {
+    options: SelectOption<TItem>[]
+    onChange: (value: TItem) => void
+    item?: TItem ;
+    disabled?: boolean
 }
 export default function Select(props: SelectProps) {
     const [expanded, setExpanded] = createSignal(false);
     const placeholderIndex = createMemo(() => {
-        const i = props.options.findIndex(v => v.isPlaceholder);
+        let i = props.options.findIndex(v => v.isPlaceholder);
+        console.log('item index', props)
         return i === -1 ? 0 : i;
     });
     const [optionIndex, setOptionIndex] = createSignal(placeholderIndex());
@@ -30,11 +35,28 @@ export default function Select(props: SelectProps) {
         'invisible': !expanded()
     }))
 
+    const buttonClasses = createMemo(() => ({
+        'pf-c-select__toggle': true,
+        
+        'pf-m-disabled': props.disabled
+    }));
+
+    const MenuOption: Component<{opts: SelectOption}> = ({opts}) => {
+        return <p>{opts.label}</p>;
+    }
+
     createEffect(() => props.onChange(option().value))
+    createEffect(() => {
+        const index =  props.options.findIndex(v => v.value === props.item);
+        console.log('propItemINdex', index)
+        if (index !== -1) {
+            setOptionIndex(index)
+        }
+    })
     return <div classList={classes()} onClick={() => setExpanded(!expanded())}>
 
         <button
-            class="pf-c-select__toggle"
+            classList={buttonClasses()}
             type="button"
             id="select-single-toggle"
             aria-haspopup="true"
@@ -43,7 +65,7 @@ export default function Select(props: SelectProps) {
         >
             <div class="pf-c-select__toggle-wrapper">
                 <span class="pf-c-select__toggle-text">
-                    {option().value}
+                    <MenuOption opts={option()}/>
                 </span>
             </div>
             <span class="pf-c-select__toggle-arrow">
@@ -71,7 +93,7 @@ export default function Select(props: SelectProps) {
 
                         onClick={() => setOptionIndex(index())}
                     >
-                        {item.value}
+                    <MenuOption opts={item}/>
 
                         <Show when={isCurr()}>
 

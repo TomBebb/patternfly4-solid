@@ -10,14 +10,27 @@ import Tooltip from './Tooltip';
 import Button from './Button';
 import Label from './Label';
 import Select from './Select';
+import Wizard, { WizardHeader } from './Wizard';
 
 const App: Component = () => {
   const [labelValue, setLabelValue] = createSignal("Hello, world of labels!");
+  const [item, setItem] = createSignal(42);
   return (
     <div >
-      <Select onChange={v => console.log('select ', v)} options={[
-        {value: 'Hello, world!', label: () =><div>Hallo world!</div>},
-        {value: 'Hello, new world!', label: () => <div>Hello world</div>}
+      <Wizard steps={[
+        {name: 'Demo 1', component: <div>My Demo</div>},
+        {name: 'Demo 2', component: <div>My SubDemo</div>,
+      steps: [
+        {name: 'Sub 1', component: <div>Sub 1</div>},
+        {name: 'Sub 2', component: <div>SubTEEN</div>},
+        {name: 'Sub 3', component: <div>Sub 3</div>},
+      ]},
+      {name: 'Demo 3'}
+      ]}>
+      </Wizard>
+      <Select item={item()} onChange={(v) => {console.log('onSelect',v);setItem(v)}} options={[
+        {value: 12, label: 'Hallo world!'},
+        {value: 42, label: 'New world.'}
       ]}></Select>
     <Label isEditable editableProps={{  onSubmit: setLabelValue,value: labelValue()}}>{labelValue()}</Label>
 

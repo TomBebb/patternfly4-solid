@@ -16,7 +16,8 @@ const headingLevelSizeDefaults: Record<HeadingLevel, HeadingLevelSize> = {
 export interface TitleProps {
     headingLevel: HeadingLevel
     size?: HeadingLevelSize
-    children: JSXElement 
+    children: JSXElement
+    className?: string
 }
 
 export default function Title(props: TitleProps) {
@@ -26,7 +27,7 @@ export default function Title(props: TitleProps) {
         'pf-c-title',
         'pf-m-'+(props.size ?? headingLevelSizeDefaults[props.headingLevel]).toString()
     ])
-    return <Dynamic component={props.headingLevel} class={classes().join(' ')}>
+    return <Dynamic component={props.headingLevel} class={classes().join(' ')+' '+props.className??''}>
         {c()}
     </Dynamic>
     

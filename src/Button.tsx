@@ -12,6 +12,7 @@ export interface ButtonProps {
     variant: ButtonVariant;
     type?: ButtonType;
     isInline?: boolean;
+    onClick?: (ev: MouseEvent) => void;
 }
 
 export default function Button(props: ButtonProps) {
@@ -19,7 +20,7 @@ export default function Button(props: ButtonProps) {
     const classes = createMemo(() => ({ 'pf-c-button': true, 'pf-m-inline': props.isInline, ['pf-m-' + props.variant]: true }))
     const iconClasses = createMemo(() => ['pf-c-button__icon', 'pf-m-' + (props.iconPosition === 'right' ? 'end' : 'start'), props.isInline])
 
-    return <Dynamic component={props.isInline ? 'span' : 'button'} type={props.type ?? 'button'} classList={classes()} disabled={props.disabled ?? false}>
+    return <Dynamic component={props.isInline ? 'span' : 'button'} type={props.type ?? 'button'} classList={classes()} disabled={props.disabled ?? false} onClick={props.onClick}>
         <Show when={props.icon && props.iconPosition !== 'right'}>
             <span class={iconClasses().join(' ')}>
                 {props.icon}
