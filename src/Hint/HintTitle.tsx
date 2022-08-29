@@ -1,5 +1,3 @@
-
-
 import { children, JSXElement } from "solid-js";
 
 export interface HintTitleProps {
