@@ -3,7 +3,7 @@ import { Component, createEffect, createSignal } from 'solid-js';
 import {Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-Page, PageToggleButton, PageSection, PageSectionVariants} from '.';
+Page, PageToggleButton, PageSection, PageSectionVariants, ActionList, ActionListItem, Button} from '.';
 
 const App: Component = () => {
   
@@ -49,6 +49,21 @@ const App: Component = () => {
       <PageSection variant='darker'>Section with darker background</PageSection>
       <PageSection variant='dark'>Section with dark background</PageSection>
       <PageSection variant='light'>Section with light background</PageSection>
+      <div>
+        
+      <ActionList>
+        <ActionListItem>
+          <Button variant="primary">
+            Next
+          </Button>
+        </ActionListItem>
+        <ActionListItem>
+          <Button variant="secondary">
+            Back
+          </Button>
+        </ActionListItem>
+      </ActionList>
+      </div>
     </Page>
   );
 };

@@ -4,6 +4,7 @@ export * from './Toolbar';
 export * from './Page';
 export * from './Masthead';
 export * from './Select';
+export * from './ActionList';
 export {default as Button} from './Button';
 export {default as Title} from './Title';
 export {default as Label} from './Label';
