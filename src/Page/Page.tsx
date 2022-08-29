@@ -6,7 +6,7 @@ export  interface PageProps {
     sidebar?: JSXElement
 }
 
-export default function Page(props: PageProps) {
+export function Page(props: PageProps) {
   const c= children(() => props.children);
     return <div class="pf-c-page">
       {c()}

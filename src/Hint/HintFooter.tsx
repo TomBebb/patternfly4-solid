@@ -6,7 +6,7 @@ export interface HintFooterProps {
     children: JSXElement
 }
 
-export default function HintFooter(props: HintFooterProps) {
+export function HintFooter(props: HintFooterProps) {
     const c = children(() => props.children);
     return <div class="pf-c-hint__footer">
         {c()}

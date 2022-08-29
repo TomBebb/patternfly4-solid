@@ -5,7 +5,7 @@ export interface HintBodyProps {
     children: JSXElement
 }
 
-export default function HintBody(props: HintBodyProps) {
+export function HintBody(props: HintBodyProps) {
     const c = children(() => props.children);
     return <div class="pf-c-hint__body">
         {c()}

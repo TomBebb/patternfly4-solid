@@ -1,8 +1,7 @@
 import '@patternfly/patternfly/components/Tooltip/tooltip.css'
 
-import { children, createEffect, createMemo, createSignal, For, JSXElement, ValidComponent } from 'solid-js';
-import { Dynamic } from 'solid-js/web/types';
-import Button from './Button';
+import { children, createEffect, createMemo, createSignal, For, JSXElement } from 'solid-js';
+import {Button} from './Button';
 
 export interface WizardHeaderProps {
   title: JSXElement
@@ -46,7 +45,7 @@ export interface WizardProps {
   steps: WizardStep[]
 }
 
-export default function Wizard(props: WizardProps) {
+export function Wizard(props: WizardProps) {
   const [stepIndex, setStepIndex] = createSignal(0);
   const [substepIndex, setSubstepIndex] = createSignal(0);
   const step = createMemo<WizardStep>(() => props.steps[stepIndex()]);

@@ -15,7 +15,7 @@ export interface PageSectionProps {
     'aria-label'?: string
 
 }
-export default function PageSection(props: PageSectionProps) {
+export function PageSection(props: PageSectionProps) {
     const c = children(() => props.children);
     const variantClass = createMemo(() => PageSectionVariants[props.variant]);
     const classes = createMemo(() => ({

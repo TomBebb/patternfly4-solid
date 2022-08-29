@@ -20,7 +20,7 @@ export interface TitleProps {
     className?: string
 }
 
-export default function Title(props: TitleProps) {
+export function Title(props: TitleProps) {
     const c = children(() => props.children);
     const classes = createMemo(() => [
         

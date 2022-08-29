@@ -5,7 +5,7 @@ export interface ActionListProps {
   isIconList?: boolean
 }
 
-export default function ActionList(props: ActionListProps) {
+export function ActionList(props: ActionListProps) {
   const c = children(() => props.children);
   const classes = createMemo(() => ({
     'pf-c-action-list': true,

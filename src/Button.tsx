@@ -15,7 +15,7 @@ export interface ButtonProps {
     onClick?: (ev: MouseEvent) => void;
 }
 
-export default function Button(props: ButtonProps) {
+export function Button(props: ButtonProps) {
     const c = children(() => props.children);
     const classes = createMemo(() => ({ 'pf-c-button': true, 'pf-m-inline': props.isInline, ['pf-m-' + props.variant]: true }))
     const iconClasses = createMemo(() => ['pf-c-button__icon', 'pf-m-' + (props.iconPosition === 'right' ? 'end' : 'start'), props.isInline])

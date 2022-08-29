@@ -5,7 +5,7 @@ export interface ActionListGroupProps {
   className?: string
 }
 
-export default function ActionListGroup(props: ActionListGroupProps) {
+export function ActionListGroup(props: ActionListGroupProps) {
   const c = children(() => props.children);
   return <div class={'pf-c-action-list__group ' + (props.className??'')}>
     {c()}

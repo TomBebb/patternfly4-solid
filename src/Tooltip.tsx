@@ -7,7 +7,7 @@ export interface TooltipProps {
     content: JSXElement
 }
 
-export default function Tooltip(props: TooltipProps) {
+export function Tooltip(props: TooltipProps) {
     return <div class="pf-c-tooltip pf-m-top" role="tooltip">
     <div class="pf-c-tooltip__arrow"></div>
   

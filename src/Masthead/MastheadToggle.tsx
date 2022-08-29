@@ -4,7 +4,7 @@ export  interface MastheadToggleProps {
     children: JSXElement
 }
 
-export default function MastheadToggle(props: MastheadToggleProps) {
+export function MastheadToggle(props: MastheadToggleProps) {
   const c = children(() => props.children);
     return <div class="pf-c-masthead__toggle">
       {c()}
