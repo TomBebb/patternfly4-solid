@@ -7,6 +7,7 @@ specifiers:
   babel-jest: ^29.0.1
   jest: ^29.0.1
   jest-environment-jsdom: ^29.0.1
+  solid-icons: ^1.0.1
   solid-jest: ^0.2.0
   solid-js: ^1.5.1
   typescript: ^4.8.2
@@ -17,6 +18,7 @@ specifiers:
 dependencies:
   '@patternfly/patternfly': 4.206.3
   '@popperjs/core': 2.11.6
+  solid-icons: 1.0.1_solid-js@1.5.1
   solid-js: 1.5.1
 
 devDependencies:
@@ -4393,6 +4395,15 @@ packages:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
     dev: true
+
+  /solid-icons/1.0.1_solid-js@1.5.1:
+    resolution: {integrity: sha512-9rxPeJ1UDGzWGlksjuXuyK2CdL1vg89inDyOl43koL3zoMgXLzY6LVLuMeuhslHbjq7Fp2h6fSSImj9ygfvleA==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      solid-js: '*'
+    dependencies:
+      solid-js: 1.5.1
+    dev: false
 
   /solid-jest/0.2.0:
     resolution: {integrity: sha512-1ILtAj+z6bh1vTvaDlcT8501vmkzkVZMk2aiexJy+XWTZ+sb9B7IWedvWadIhOwwL97fiW4eMmN6SrbaHjn12A==}

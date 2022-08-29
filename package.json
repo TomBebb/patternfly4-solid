@@ -24,6 +24,7 @@
   "dependencies": {
     "@patternfly/patternfly": "^4.206.3",
     "@popperjs/core": "^2.11.6",
+    "solid-icons": "^1.0.1",
     "solid-js": "^1.5.1"
   },
   "module": "dist/patternfly4-solidjs.mjs",

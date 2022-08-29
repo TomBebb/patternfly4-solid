@@ -1,10 +1,10 @@
-import { Component, createEffect, createSignal } from 'solid-js';
+import { Component, createEffect, createSignal, For } from 'solid-js';
 
 import {Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-Page, PageToggleButton, PageSection, PageSectionVariants, ActionList, ActionListItem, Button} from '.';
-import { Alert } from './Alert/Alert';
+Page, PageToggleButton, PageSection, ActionList, ActionListItem, Button} from '.';
+import { Alert, AlertVariant } from './Alert/Alert';
 
 const App: Component = () => {
   
@@ -67,9 +67,12 @@ const App: Component = () => {
       </div>
 
       <div>
-        <Alert title='Test' variant='info' customIcon={<i class="fas fa-exclamation-triangle"></i>}>
-
-        </Alert>
+        <For each={['danger', 'default', 'info', 'success', 'warning'] as AlertVariant[]}>{item =>
+        
+          <Alert title={item} variant={item}>
+              Demo {item}
+          </Alert>
+        }</For>
       </div>
     </Page>
   );
