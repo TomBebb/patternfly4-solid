@@ -4,6 +4,7 @@ import {Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
 Page, PageToggleButton, PageSection, PageSectionVariants, ActionList, ActionListItem, Button} from '.';
+import { Alert } from './Alert/Alert';
 
 const App: Component = () => {
   
@@ -63,6 +64,12 @@ const App: Component = () => {
           </Button>
         </ActionListItem>
       </ActionList>
+      </div>
+
+      <div>
+        <Alert title='Test' variant='info' customIcon={<i class="fas fa-exclamation-triangle"></i>}>
+
+        </Alert>
       </div>
     </Page>
   );
