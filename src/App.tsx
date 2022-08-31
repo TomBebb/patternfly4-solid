@@ -3,7 +3,7 @@ import { Component, createEffect, createSignal, For } from 'solid-js';
 import {Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner, Card, CardBody, Divider, CardFooter, Title} from '.';
+Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner, Card, CardBody, Divider, CardFooter, Title, Checkbox} from '.';
 import { CardTitle } from './Card/CardTitle';
 
 const App: Component = () => {
@@ -68,7 +68,14 @@ const App: Component = () => {
         Welcome!
       </Banner>
       </PageSection>
-      <PageSection variant='light'>Section with light background <Badge isRead>Read</Badge> <Badge>Unread</Badge></PageSection>
+      <PageSection variant='light'>Section with light background <Badge isRead>Read</Badge> <Badge>Unread</Badge>
+      
+      <Checkbox
+      description='Desc'
+        label="Child CheckBox 2"
+        checked={true}
+      />
+      </PageSection>
     </Page>
   );
 };
