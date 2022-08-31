@@ -10,6 +10,6 @@ export function Input(props: InputProps) {
     type={props.type}
     value={props.value ?? ''}
     placeholder={props.placeholder}
-    onChange={v => props.onChange((v.target as HTMLInputElement).valueO}
+    onChange={v => props.onChange((v.target as HTMLInputElement).value)}
   />;
 }

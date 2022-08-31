@@ -65,7 +65,7 @@ const App: Component = () => {
                 checked={true}
               />
 
-<Input placeholder='Email' value={email()} onChange={setEmail} />
+              <Input placeholder='Email' value={email()} onChange={setEmail} />
             </div>
           },
           {
