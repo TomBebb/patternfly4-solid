@@ -13,5 +13,6 @@ export * from './Wizard';
 export * from './Divider';
 export * from './Hint';
 export * from './Avatar';
+export * from './Badge';
 import '@patternfly/patternfly/patternfly.css'
 import './index.css'
