@@ -13,6 +13,7 @@ export {default as Divider, type DividerProps} from './Divider';
 export {default as Hint, type HintProps} from './Hint';
 export {default as HintBody, type HintBodyProps} from './HintBody';
 export {default as HintFooter, type HintFooterProps} from './HintFooter';
-export {default as HintTitle, type HintTitleProps} from './HintTitle';
+export {default as HintTitle, type HintTitleProps} from './HintTitle';;
+export {default as Avatar, type AvatarProps} from './Avatar';
 import '@patternfly/patternfly/patternfly.css'
 import './index.css'
