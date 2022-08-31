@@ -20,5 +20,7 @@ export * from './Checkbox';
 export * from './Tabs';
 export * from './Input';
 export * from './TextArea';
+export * from './HelperText';
+export * from './List';
 import '@patternfly/patternfly/patternfly.css'
 import './index.css'

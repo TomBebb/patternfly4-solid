@@ -4,7 +4,7 @@ import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea
+  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType
 } from '.';
 import { HelperText } from './HelperText/HelperText';
 import { HelperTextItem } from './HelperText/HelperTextItem';
@@ -82,7 +82,7 @@ const App: Component = () => {
             </div>
           },
           {
-            title: 'Misc',
+            title: 'Helpers',
             content: <div>
               <HelperText >
                 <HelperTextItem hasIcon>Default</HelperTextItem>
@@ -92,6 +92,14 @@ const App: Component = () => {
                 <HelperTextItem variant='success' hasIcon>Success</HelperTextItem>
               </HelperText>
             </div>
+          },
+          {
+            title: 'Lists',
+            content:   <List type={OrderType.Number}  isBordered>
+            <ListItem>First</ListItem>
+            <ListItem>Second</ListItem>
+            <ListItem>Third</ListItem>
+          </List>
           }
         ]}
       />
