@@ -11,7 +11,7 @@ export interface AvatarProps {
     src: string
 }
 
-export default function Avatar(props: AvatarProps) {
+export function Avatar(props: AvatarProps) {
 
 
     return <img src={props.src} alt={props.alt} classList={{
