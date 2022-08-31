@@ -3,7 +3,8 @@ import { Component, createEffect, createSignal, For } from 'solid-js';
 import {Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner} from '.';
+Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner, Card, CardBody, Divider, CardFooter, Title} from '.';
+import { CardTitle } from './Card/CardTitle';
 
 const App: Component = () => {
   
@@ -46,7 +47,22 @@ const App: Component = () => {
   );
   return (
     <Page header={header} sidebar={sidebar}>
-      <PageSection variant='darker'>Section with darker background</PageSection>
+      <PageSection variant='darker'>Section with darker background
+      <Card>
+        <CardTitle>
+          <Title headingLevel="h4" size="xl">
+            Details
+          </Title>
+        </CardTitle>
+        <CardBody>My Body
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <a href="#">View Settings</a>
+        </CardFooter>
+      </Card>
+      
+      </PageSection>
       <PageSection variant='dark'>Section with dark background
       <Banner variant='danger'>
         Welcome!
