@@ -4,7 +4,7 @@ import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-  Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner, Card, CardBody, Divider, CardFooter, Title, Checkbox, Tabs
+  Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner, Card, CardBody, Divider, CardFooter, Title, Checkbox, Tabs, Label, Input
 } from '.';
 import { CardTitle } from './Card/CardTitle';
 
@@ -48,6 +48,7 @@ const App: Component = () => {
     </Masthead>
   );
   const [currentTab, setCurrentTab] = createSignal(0);
+  const [email, setEmail] = createSignal('top');
   return (
     <Page header={header} sidebar={sidebar}>
       <Tabs
@@ -63,12 +64,19 @@ const App: Component = () => {
                 label="Child CheckBox 2"
                 checked={true}
               />
+
+<Input placeholder='Email' value={email()} onChange={setEmail} />
             </div>
           },
           {
             title: 'Typography',
             content: <div>
-              <Title headingLevel='h1' >H1</Title>
+            <Title headingLevel='h1' >H1</Title>
+              <Title headingLevel='h2' >H2</Title>
+              <Title headingLevel='h3' >H3</Title>
+
+              <Label>Label</Label>
+              <Label isCompact>Label (compact)  </Label>
             </div>
           }
         ]}
