@@ -1,8 +1,8 @@
 import {  children, createMemo, JSXElement } from 'solid-js';
 import { Dynamic,  } from 'solid-js/web';
+import { HeadingLevel } from './misc';
 
 export type HeadingLevelSize = 	'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
-export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 const headingLevelSizeDefaults: Record<HeadingLevel, HeadingLevelSize> = {
     h1: '2xl',
@@ -20,7 +20,7 @@ export interface TitleProps {
     className?: string
 }
 
-export default function Title(props: TitleProps) {
+export function Title(props: TitleProps) {
     const c = children(() => props.children);
     const classes = createMemo(() => [
         

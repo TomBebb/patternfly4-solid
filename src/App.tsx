@@ -1,9 +1,9 @@
-import { Component, createEffect, createSignal } from 'solid-js';
+import { Component, createEffect, createSignal, For } from 'solid-js';
 
 import {Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-Page, PageToggleButton, PageSection, PageSectionVariants, Avatar} from '.';
+Page, PageToggleButton, PageSection, PageSectionVariants} from '.';
 
 const App: Component = () => {
   
@@ -48,10 +48,7 @@ const App: Component = () => {
     <Page header={header} sidebar={sidebar}>
       <PageSection variant='darker'>Section with darker background</PageSection>
       <PageSection variant='dark'>Section with dark background</PageSection>
-      <PageSection variant='light'>Section with light
-      <Avatar src='https://www.patternfly.org/assets/images/img_avatar-dark.svg'/>
-      <Avatar src='https://www.patternfly.org/assets/images/img_avatar-dark.svg' alt='Avatar' border='dark' size='lg'/>
-      </PageSection>
+      <PageSection variant='light'>Section with light background</PageSection>
     </Page>
   );
 };

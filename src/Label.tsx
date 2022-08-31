@@ -25,7 +25,7 @@ export type LabelColor = 'blue' | 'cyan' | 'green' | 'orange' | 'purple' | 'red'
 export type LabelVariant = 'outline' | 'filled';
 
 
-export default function Label(props: LabelProps) {
+export function Label(props: LabelProps) {
     const c = children(() => props.children);
     const [editText, setEditText] = createSignal<string | null>(null);
     const editing = createMemo<boolean>(() => editText() !== null)

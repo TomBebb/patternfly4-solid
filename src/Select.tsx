@@ -16,7 +16,7 @@ export interface SelectProps<TItem = any> {
     item?: TItem ;
     disabled?: boolean
 }
-export default function Select(props: SelectProps) {
+export function Select(props: SelectProps) {
     const [expanded, setExpanded] = createSignal(false);
     const placeholderIndex = createMemo(() => {
         let i = props.options.findIndex(v => v.isPlaceholder);

@@ -1,5 +1,5 @@
 import { children, JSXElement } from "solid-js";
-import Button, { ButtonVariant } from "../Button";
+import {Button,  ButtonVariant } from "../Button";
 
 export interface PageToggleButtonProps {
     isNavOpen: boolean
@@ -9,7 +9,7 @@ export interface PageToggleButtonProps {
     'aria-label': string
 }
 
-export default function PageToggleButton(props: PageToggleButtonProps) {
+export function PageToggleButton(props: PageToggleButtonProps) {
     const c = children(() => props.children);
     return <Button variant={props.variant} onClick={props.onNavToggle}>
         {c()}

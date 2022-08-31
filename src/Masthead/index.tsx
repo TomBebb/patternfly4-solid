@@ -1,5 +1,5 @@
-export {default as Masthead} from './Masthead';
-export {default as MastheadBrand} from './MastheadBrand';
-export {default as MastheadContent} from './MastheadContent';
-export {default as MastheadMain} from './MastheadMain';
-export {default as MastheadToggle} from './MastheadToggle';
+export * from './Masthead';
+export * from './MastheadBrand';
+export * from './MastheadContent';
+export * from './MastheadMain';
+export * from './MastheadToggle';

@@ -18,6 +18,6 @@ export default defineConfig({
     outDir: 'dist/demo'
   },
   plugins: [
-    solidPlugin()
+    solidPlugin(),
   ]
 });

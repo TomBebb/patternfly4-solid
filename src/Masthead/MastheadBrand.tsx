@@ -6,7 +6,7 @@ export interface MastheadBrandProps {
   target?: string
 }
 
-export default function MastheadBrand(props: MastheadBrandProps) {
+export function MastheadBrand(props: MastheadBrandProps) {
   const c = children(() => props.children);
   return <div class="pf-c-masthead__brand">
     {c()}

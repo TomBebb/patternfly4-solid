@@ -1,13 +1,12 @@
-
 import { children, JSXElement } from "solid-js";
 
-export interface HintBodyProps {
+export interface HintTitleProps {
     children: JSXElement
 }
 
-export default function HintBody(props: HintBodyProps) {
+export function HintTitle(props: HintTitleProps) {
     const c = children(() => props.children);
-    return <div class="pf-c-hint__body">
+    return <div class="pf-c-hint__title">
         {c()}
     </div>
 }
