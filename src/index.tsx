@@ -19,5 +19,6 @@ export * from './Card';
 export * from './Checkbox';
 export * from './Tabs';
 export * from './Input';
+export * from './TextArea';
 import '@patternfly/patternfly/patternfly.css'
 import './index.css'

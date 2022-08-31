@@ -4,7 +4,7 @@ import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-  Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner, Card, CardBody, Divider, CardFooter, Title, Checkbox, Tabs, Label, Input
+  Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner, Card, CardBody, Divider, CardFooter, Title, Checkbox, Tabs, Label, Input, TextArea
 } from '.';
 import { CardTitle } from './Card/CardTitle';
 
@@ -65,7 +65,8 @@ const App: Component = () => {
                 checked={true}
               />
 
-              <Input placeholder='Email' value={email()} onChange={setEmail} />
+<Input placeholder='Email' value={email()} onChange={setEmail} />
+              <TextArea placeholder='Email' value={email()} onChange={setEmail} canResizeVertical />
             </div>
           },
           {
