@@ -14,5 +14,6 @@ export * from './Divider';
 export * from './Hint';
 export * from './Avatar';
 export * from './Badge';
+export * from './Banner';
 import '@patternfly/patternfly/patternfly.css'
 import './index.css'
