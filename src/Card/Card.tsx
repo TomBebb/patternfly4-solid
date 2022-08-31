@@ -10,6 +10,7 @@ export interface CardProps {
     isRounded?: boolean
     isSelected?: boolean
     isSelectable?: boolean
+    isFullWidth?: boolean
     children:  JSXElement
 }
 
@@ -24,7 +25,9 @@ export function Card(props: CardProps) {
             'pf-m-flat': props.isFlat,
             'pf-m-rounded': props.isRounded,
             'pf-m-full-height': props.isFullHeight
-        }}>
+        }}
+            style={{width: props.isFullWidth ? '100%':'auto'}}
+            >
             {childs}
     </div>
 }
