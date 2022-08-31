@@ -1,12 +1,13 @@
-import { Component, createEffect, createSignal, For } from 'solid-js';
+import { Component, createSignal } from 'solid-js';
 
 import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
 
-  Page, PageToggleButton, PageSection, PageSectionVariants, Badge, Banner, Card, CardBody, Divider, CardFooter, Title, Checkbox, Tabs, Label, Input, TextArea
+  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea
 } from '.';
-import { CardTitle } from './Card/CardTitle';
+import { HelperText } from './HelperText/HelperText';
+import { HelperTextItem } from './HelperText/HelperTextItem';
 
 const App: Component = () => {
 
@@ -65,19 +66,31 @@ const App: Component = () => {
                 checked={true}
               />
 
-<Input placeholder='Email' value={email()} onChange={setEmail} />
+              <Input placeholder='Email' value={email()} onChange={setEmail} />
               <TextArea placeholder='Email' value={email()} onChange={setEmail} canResizeVertical />
             </div>
           },
           {
             title: 'Typography',
             content: <div>
-            <Title headingLevel='h1' >H1</Title>
+              <Title headingLevel='h1' >H1</Title>
               <Title headingLevel='h2' >H2</Title>
               <Title headingLevel='h3' >H3</Title>
 
               <Label>Label</Label>
               <Label isCompact>Label (compact)  </Label>
+            </div>
+          },
+          {
+            title: 'Misc',
+            content: <div>
+              <HelperText >
+                <HelperTextItem hasIcon>Default</HelperTextItem>
+                <HelperTextItem variant='error' hasIcon>Error</HelperTextItem>
+                <HelperTextItem variant='warning' hasIcon>Warning</HelperTextItem>
+                <HelperTextItem variant='indeterminate' hasIcon>Indeterminate</HelperTextItem>
+                <HelperTextItem variant='success' hasIcon>Success</HelperTextItem>
+              </HelperText>
             </div>
           }
         ]}
