@@ -3,14 +3,18 @@ import solidPlugin from 'vite-plugin-solid';
 
 import path, { resolve } from 'path'
 
+console.log(__dirname)
+
 export default defineConfig({
+  
   server: {
     port: 3000,
   },
   build: {
+      
     target: 'esnext',
-    lib: {
-      entry: resolve(__dirname, 'index.html'),
+    lib: {  
+      entry: resolve(__dirname, '/src/index.html'),
 
       formats: ['es']
       
