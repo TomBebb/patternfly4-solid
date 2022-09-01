@@ -4,7 +4,7 @@ import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
   HelperText, HelperTextItem,
-  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup
+  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner
 } from '..';
 import { TableDemo } from './TableDemo';
 
@@ -106,6 +106,15 @@ const App: Component = () => {
           {
             title: 'Table',
             content: <TableDemo />
+          },
+          {
+            title: 'Spinner',
+            content: <div>
+            <Spinner />
+              <Spinner size='md' />
+              <Spinner size='lg' />
+              <Spinner size='xl' />
+              </div>
           },
           {
             title: 'Toggle Group',

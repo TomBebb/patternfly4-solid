@@ -22,6 +22,8 @@ export * from './Table';
 export * from './Input';
 export * from './TextArea';
 export * from './ToggleGroup';
+
+export * from './Spinner';
 export * from './HelperText';
 export * from './List';
 import '@patternfly/patternfly/patternfly.css'
