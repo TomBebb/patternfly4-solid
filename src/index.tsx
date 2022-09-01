@@ -18,6 +18,7 @@ export * from './Banner';
 export * from './Card';
 export * from './Checkbox';
 export * from './Tabs';
+export * from './Table';
 export * from './Input';
 export * from './TextArea';
 export * from './HelperText';
