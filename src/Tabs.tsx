@@ -1,8 +1,4 @@
 import { For, JSXElement } from "solid-js"
-import { Card, CardBody, CardFooter } from "./Card"
-import { CardTitle } from "./Card/CardTitle"
-import { Divider } from "./Divider"
-import { Title } from "./Title"
 
 export interface TabsProps {
     activeKey: number
@@ -48,6 +44,18 @@ export function Tabs(props: TabsProps) {
             <i class="fas fa-angle-right" aria-hidden="true"></i>
         </button>
     </div>
-    {props.tabs[props.activeKey].content}
+    <For each={props.tabs}>
+        {(tab, tabIndex) => {
+    return <section
+  class="pf-c-tab-content"
+  role="tabpanel"
+  tabindex="0"
+  hidden={tabIndex() !== props.activeKey}
+>
+  <div class="pf-c-tab-content__body">
+    {tab.content!}
     </div>
+</section>
+}}</For>
+</div>
 }
