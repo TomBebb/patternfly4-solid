@@ -4,9 +4,11 @@ import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
   HelperText, HelperTextItem,
-  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, ToggleGroupItem
+  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup
 } from '..';
 import { TableDemo } from './TableDemo';
+
+import { Set } from 'immutable';
 
 const App: Component = () => {
 
@@ -49,7 +51,7 @@ const App: Component = () => {
   );
   const [currentTab, setCurrentTab] = createSignal(0);
   const [email, setEmail] = createSignal('top');
-  const [items, setItems] = createSignal<string[]>([]);
+  const [items, setItems] = createSignal<Set<string>>(Set(['undo']));
   return (
     <Page header={header} sidebar={sidebar}>
       <Tabs
@@ -95,43 +97,45 @@ const App: Component = () => {
           },
           {
             title: 'Lists',
-            content:   <List type={OrderType.Number}  isBordered>
-            <ListItem>First</ListItem>
-            <ListItem>Second</ListItem>
-            <ListItem>Third</ListItem>
-          </List>
+            content: <List type={OrderType.Number} isBordered>
+              <ListItem>First</ListItem>
+              <ListItem>Second</ListItem>
+              <ListItem>Third</ListItem>
+            </List>
           },
           {
             title: 'Table',
-            content: <TableDemo/>
+            content: <TableDemo />
           },
           {
             title: 'Toggle Group',
             content: <ToggleGroup<string> items={[
               {
-                  key: 'copy',
-                  text: 'Copy',
-                  icon: <i class="fa-solid fa-copy"></i>
-                },
-                {
-                  key: 'undo',
-                  text: 'Undo',
-                  icon: <i class="fa-solid fa-rotate-left"></i>
-                },
-                {
-                  key: 'share',
-                  text: 'Share',
-                  icon: <i class="fa-solid fa-rotate-right"></i>
-                },
-              ]}
-              hasItem={v => items()?.includes(v)}
-              setItem={(k, v) => {if (v) {
-                setItems([...items(), k])
-              } else {
-                setItems(items().filter(i => i !== k))
-              }}}
-              />
-            
+                key: 'copy',
+                text: 'Copy',
+                icon: <i class="fa-solid fa-copy"></i>
+              },
+              {
+                key: 'undo',
+                text: 'Undo',
+                icon: <i class="fa-solid fa-rotate-left"></i>
+              },
+              {
+                key: 'share',
+                text: 'Share',
+                icon: <i class="fa-solid fa-rotate-right"></i>
+              },
+            ]}
+            hasItem={v => items()?.includes(v)}
+              setItem={(k, v) => {
+                if (v) {
+                  setItems(items().add(k));
+                } else {
+                  setItems(items().remove(k))
+                }
+              }}
+            />
+
           }
         ]}
       />

@@ -22,7 +22,7 @@ export function ToggleGroupItem(raw: ToggleGroupItemProps) {
             }}
             aria-pressed={props.isSelected}
             aria-label={props.text}
-            onClick={() => props.onChange(props.isSelected)}
+            onClick={() => props.onChange(!props.isSelected)}
         >
             <Show when={props.icon}>
 
