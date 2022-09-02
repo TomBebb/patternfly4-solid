@@ -1,13 +1,12 @@
-import { Component, createEffect, createSignal } from 'solid-js';
+import { Component, createEffect, createSignal, JSXElement } from 'solid-js';
 
 import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
   HelperText, HelperTextItem,
-  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner, Slider, Button, AboutModal
+  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner, Slider, Button, AboutModal, Accordion
 } from '..';
 import { TableDemo } from './TableDemo';
-
 import { Set } from 'immutable';
 import { createSign } from 'crypto';
 
@@ -57,6 +56,35 @@ const App: Component = () => {
   const [showAbout, setShowAbout] = createSignal(false);
   const [email, setEmail] = createSignal('top');
   const [items, setItems] = createSignal<Set<string>>(Set(['undo']));
+
+  interface Item {
+    key: string
+    value: string
+    content: JSXElement
+  }
+
+  const [selectedItems, setSelectedItems] = createSignal<Set<string>>(Set());
+  const value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis molestie lorem lacinia dolor aliquet faucibus. Suspendisse gravida imperdiet accumsan. Aenean auctor lorem justo, vitae tincidunt enim blandit vel. Aenean quis tempus dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  const AccordionDemo = <Accordion<Item, string>
+      getKey={v => v.key}
+      itemContent={(props) => <>{props.item.content}</>}
+      itemToggle={(props) => <>{props.item.value}</>}
+      items={[{
+          content: 'Item one',
+          key: '1',
+          value
+        },
+
+    {
+      content: 'Item two',
+      key: '2',
+      value
+      
+    }
+      ]}
+      selected={selectedItems()}
+      setSelected={setSelectedItems}
+   />;
   return (
     <Page header={header} sidebar={sidebar}>
       <Tabs
@@ -76,6 +104,10 @@ const App: Component = () => {
               <Input placeholder='Email' value={email()} onChange={setEmail} />
               <TextArea placeholder='Email' value={email()} onChange={setEmail} canResizeVertical />
             </div>
+          },
+          {
+            title: 'Accordion',
+            content: AccordionDemo
           },
           {
             title: 'Typography',

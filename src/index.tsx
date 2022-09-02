@@ -24,6 +24,7 @@ export * from './Slider';
 export * from './TextArea';
 export * from './ToggleGroup';
 export * from './AboutModal';
+export * from './Accordion';
 
 export * from './Spinner';
 export * from './HelperText';
