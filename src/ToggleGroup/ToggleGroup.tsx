@@ -11,7 +11,7 @@ export interface ToggleGroupProps<TKey> {
 
 }
 export function ToggleGroup<TKey>(raw: ToggleGroupProps<TKey>) {
-    console.log('ToggleGroup', raw);
+    
     const [{ items, hasItem, setItem }] = createStore(raw);
 
     return <div class="pf-c-toggle-group" role="group">

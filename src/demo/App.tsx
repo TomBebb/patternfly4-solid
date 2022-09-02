@@ -1,14 +1,15 @@
-import { Component, createSignal } from 'solid-js';
+import { Component, createEffect, createSignal } from 'solid-js';
 
 import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
   HelperText, HelperTextItem,
-  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner
+  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner, Slider, Button, AboutModal
 } from '..';
 import { TableDemo } from './TableDemo';
 
 import { Set } from 'immutable';
+import { createSign } from 'crypto';
 
 const App: Component = () => {
 
@@ -50,6 +51,10 @@ const App: Component = () => {
     </Masthead>
   );
   const [currentTab, setCurrentTab] = createSignal(0);
+  const [sliderVal, setSliderVal] = createSignal(50);
+  createEffect(() => console.log('sliderVal', sliderVal(  )))
+
+  const [showAbout, setShowAbout] = createSignal(false);
   const [email, setEmail] = createSignal('top');
   const [items, setItems] = createSignal<Set<string>>(Set(['undo']));
   return (
@@ -96,6 +101,19 @@ const App: Component = () => {
             </div>
           },
           {
+            title: 'About Modal',
+            content: <div>
+              <Button variant='primary' onClick={() => setShowAbout(true)}>Show about</Button>
+              <AboutModal isOpen={showAbout()} productName='My Product'
+              brandImageSrc='https://www.patternfly.org/v4/images/brandImg.cd87f4d68dcba8304cf9e3192715322f.svg'
+              onClose={() => setShowAbout(false)}
+              trademark='Trademark and copyright information here'>
+
+                MyPBXTOols
+              </AboutModal>
+          </div>
+          },
+          {
             title: 'Lists',
             content: <List type={OrderType.Number} isBordered>
               <ListItem>First</ListItem>
@@ -106,6 +124,26 @@ const App: Component = () => {
           {
             title: 'Table',
             content: <TableDemo />
+          },
+          {
+            title: 'Slider',
+            content: <div>
+              <div>{sliderVal()}</div>
+              <Slider step={4} value={sliderVal()} onChange={v => {
+              console.log('sliderVal change App', v);
+              setSliderVal(v);
+            }} customSteps={[
+              {
+                label: '0px',
+                value: 0
+              },{
+                label: '10px',
+                value: 10
+              },{
+                label: '50px',
+                value: 50
+              }
+        ]} /></div>
           },
           {
             title: 'Spinner',

@@ -20,8 +20,10 @@ export * from './Checkbox';
 export * from './Tabs';
 export * from './Table';
 export * from './Input';
+export * from './Slider';
 export * from './TextArea';
 export * from './ToggleGroup';
+export * from './AboutModal';
 
 export * from './Spinner';
 export * from './HelperText';

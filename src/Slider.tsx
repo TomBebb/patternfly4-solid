@@ -2,6 +2,7 @@
 
 import { createEffect, createMemo, createSignal, For, onCleanup, onMount, Show } from "solid-js";
 import { createStore } from "solid-js/store";
+import _range from "lodash.range";
 export interface CustomSliderStep {
     value: number
     label: string
@@ -21,6 +22,7 @@ export function Slider(props: SliderProps) {
     const max = createMemo(() => props.customSteps[props.customSteps.length - 1].value);
     const min = createMemo(() => props.customSteps[0].value);
     const range = createMemo(() => max() - min());
+    const subs = createMemo(() => _range(min(), max(), props.step ?? 1));
 
     function onMouseUp(ev: MouseEvent) {
         setMouseDown(false);
@@ -112,12 +114,12 @@ export function Slider(props: SliderProps) {
                 }</For>
 
                 <Show when={props.step}>
-                    <For each={INC}>{sub => 
+                    <For each={subs()}>{sub => 
 
                         <div
                     class="pf-c-slider__step"
                         style={{
-                            "--pf-c-slider__step--Left": toCss(parseInt(sub) * (props.step! / range()))
+                            "--pf-c-slider__step--Left": toCss(sub)
                         } as any}
                         >
                         <div class="pf-c-slider__step-tick"></div>

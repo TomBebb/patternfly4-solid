@@ -20,7 +20,6 @@ export function Select(props: SelectProps) {
     const [expanded, setExpanded] = createSignal(false);
     const placeholderIndex = createMemo(() => {
         let i = props.options.findIndex(v => v.isPlaceholder);
-        console.log('item index', props)
         return i === -1 ? 0 : i;
     });
     const [optionIndex, setOptionIndex] = createSignal(placeholderIndex());

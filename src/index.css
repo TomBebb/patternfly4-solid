@@ -5,3 +5,8 @@
 .invisible {
     visibility: hidden !important;
 }
+
+.disable-select {
+
+  user-select: none;
+}
