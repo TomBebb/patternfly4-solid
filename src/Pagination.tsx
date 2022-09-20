@@ -57,7 +57,7 @@ export function Pagination(props: PaginationProps) {
                     min={1}
                     max={maxPage()}
                     value={props.page}
-                    onChange={(v) => props.onSetPage(parseInt(v))}
+                    onChange={(v) => props.onSetPage(v as any | 0)}
                 />
                 <span aria-hidden="true">of {maxPage()}</span>
             </div>
