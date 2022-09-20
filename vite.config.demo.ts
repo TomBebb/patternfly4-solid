@@ -3,7 +3,6 @@ import solidPlugin from 'vite-plugin-solid';
 
 import path, { resolve } from 'path'
 
-console.log(__dirname)
 
 export default defineConfig({
   
