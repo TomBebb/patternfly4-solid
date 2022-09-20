@@ -31,7 +31,7 @@ export function HelperTextItem(props: HelperTextItemProps) {
     }}>
         <Show when={props.hasIcon}>
             <span class="pf-c-helper-text__item-icon">
-                <Dynamic<IconProps> component={faIconsPerVariant[props.variant ?? 'default']} />
+                <Dynamic component={faIconsPerVariant[props.variant ?? 'default']} />
             </span>
         </Show>
         <span class="pf-c-helper-text__item-text">

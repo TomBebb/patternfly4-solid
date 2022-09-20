@@ -3,6 +3,7 @@ export interface SpinnerProps {
     size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 export function Spinner(props: SpinnerProps) {
+    // @ts-ignore
     return <svg
     classList={{
         'pf-c-spinner': true,

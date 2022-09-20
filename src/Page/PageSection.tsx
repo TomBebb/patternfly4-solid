@@ -1,4 +1,3 @@
-import { create } from "domain";
 import { children, createMemo, JSXElement } from "solid-js";
 
 export type PageSectionVariant = 'darker' | 'dark' | 'light';

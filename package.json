@@ -1,6 +1,6 @@
 {
   "name": "patternfly4-solidjs",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Patternfly 4 templates for SolidJS",
   "scripts": {
     "dev:demo": "vite -c vite.config.demo.ts",

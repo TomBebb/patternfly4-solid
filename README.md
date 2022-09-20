@@ -1,6 +1,6 @@
 # PatternFly4 SolidJS
 
-These are some SolidJS bindings to PatternFly4, a powerful CSS framework.
+These are some SolidJS bindings to [PatternFly4](https://www.patternfly.org/v4/components/notification-badge), a powerful CSS framework.
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
