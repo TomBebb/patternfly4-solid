@@ -3,6 +3,8 @@ export interface InputProps {
     value?: string | number;
     placeholder?:string;
     onChange: (v: string | number) => void;
+    min?: number
+    max?: number;
 }
 export function Input(props: InputProps) {
     return <input

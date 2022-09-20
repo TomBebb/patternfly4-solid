@@ -1,5 +1,5 @@
 import { Component, createSignal } from "solid-js";
-import { createStore } from "solid-js/store";
+import { Pagination } from "../Pagination";
 import { TableComposable, Caption, Thead, Tr, Th, Tbody, Td } from "../Table";
 
 interface Repository {
@@ -33,7 +33,7 @@ interface Repository {
     // This state is just for the ToggleGroup in this example and isn't necessary for TableComposable usage.
     const [exampleChoice, setExampleChoice] = createSignal<ExampleType>('default');
     
-  
+    const [currPage, setCurrPage] = createSignal(1);
     return (
         <TableComposable
           aria-label="Simple table"
@@ -61,6 +61,12 @@ interface Repository {
               </Tr>
             ))}
           </Tbody>
+
+          <tfoot>
+            <Pagination itemCount={93} page={currPage()} perPage={10} onSetPage={setCurrPage}>
+
+            </Pagination>
+          </tfoot>
         </TableComposable>
     );
   };
