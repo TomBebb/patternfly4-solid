@@ -1,7 +1,7 @@
 import '@patternfly/patternfly/components/Tooltip/tooltip.css'
 
 import { children, createEffect, createMemo, createSignal, For, JSXElement } from 'solid-js';
-import {Button} from './Button';
+import { Button } from './Button';
 
 export interface WizardHeaderProps {
   title: JSXElement
@@ -64,7 +64,7 @@ export function Wizard(props: WizardProps) {
 
   createEffect(() => {
     if (substepIndex() === 0 && isSub()) {
-        setSubstepIndex(0);
+      setSubstepIndex(0);
     }
   });
   const next = () => {
@@ -87,11 +87,6 @@ export function Wizard(props: WizardProps) {
   const c = children(() => props.children);
   return <div class="pf-c-wizard">
     {c()}
-    <main class="pf-c-wizard__main" tabindex="0">
-      <div class="pf-c-wizard__main-body">
-        {fullStep().component}
-      </div>
-    </main>
     <div class="pf-c-wizard__outer-wrap">
       <div class="pf-c-wizard__inner-wrap">
 
@@ -134,34 +129,21 @@ export function Wizard(props: WizardProps) {
             }}</For>
           </ol>
         </nav>
+
+        <main class="pf-c-wizard__main" tabindex="0">
+          <div class="pf-c-wizard__main-body">
+            {fullStep().component}
+          </div>
+        </main>
       </div>
+
+      <footer class="pf-c-wizard__footer">
+        <Button variant='primary' disabled={!canAdvance()} onClick={next}>Next</Button>
+        <Button variant='secondary' disabled={!canReturnPrev()} onClick={returnPrev}>Back</Button>
+        <div class="pf-c-wizard__footer-cancel">
+          <Button variant='link'>Cancel</Button>
+        </div>
+      </footer>
     </div>
-    <footer class="pf-c-wizard__footer">
-      <Button variant='primary' disabled={!canAdvance()} onClick={next}>Next</Button>
-      <Button variant='secondary' disabled={!canReturnPrev()} onClick={returnPrev}>Back</Button>
-      <div class="pf-c-wizard__footer-cancel">
-      <Button variant='link'>Cancel</Button>
-      </div>
-    </footer>
-    <button
-      aria-label="Wizard Header Toggle"
-      class="pf-c-wizard__toggle"
-      aria-expanded="false"
-    >
-      <span class="pf-c-wizard__toggle-list">
-        <span class="pf-c-wizard__toggle-list-item">
-          <span class="pf-c-wizard__toggle-num">2</span>
-          Configuration
-          <i
-            class="fas fa-angle-right pf-c-wizard__toggle-separator"
-            aria-hidden="true"
-          ></i>
-        </span>
-        <span class="pf-c-wizard__toggle-list-item">Substep B</span>
-      </span>
-      <span class="pf-c-wizard__toggle-icon">
-        <i class="fas fa-caret-down" aria-hidden="true"></i>
-      </span>
-    </button>
   </div>;
 }

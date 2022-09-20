@@ -3,7 +3,7 @@ import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
   HelperText, HelperTextItem,
-  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner, Slider, Button, AboutModal, Accordion
+  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner, Slider, Button, AboutModal, Accordion, Wizard
 } from '..';
 import { TableDemo } from './TableDemo';
 import { Set } from 'immutable';
@@ -51,7 +51,7 @@ const App: Component = () => {
   );
   const [currentTab, setCurrentTab] = createSignal(0);
   const [sliderVal, setSliderVal] = createSignal(50);
-  createEffect(() => console.log('sliderVal', sliderVal(  )))
+  createEffect(() => console.log('sliderVal', sliderVal()))
 
   const [showAbout, setShowAbout] = createSignal(false);
   const [email, setEmail] = createSignal('top');
@@ -66,25 +66,25 @@ const App: Component = () => {
   const [selectedItems, setSelectedItems] = createSignal<Set<string>>(Set());
   const value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis molestie lorem lacinia dolor aliquet faucibus. Suspendisse gravida imperdiet accumsan. Aenean auctor lorem justo, vitae tincidunt enim blandit vel. Aenean quis tempus dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   const AccordionDemo = <Accordion<Item, string>
-      getKey={v => v.key}
-      itemContent={(props) => <>{props.item.content}</>}
-      itemToggle={(props) => <>{props.item.value}</>}
-      items={[{
-          content: 'Item one',
-          key: '1',
-          value
-        },
+    getKey={v => v.key}
+    itemContent={(props) => <>{props.item.content}</>}
+    itemToggle={(props) => <>{props.item.value}</>}
+    items={[{
+      content: 'Item one',
+      key: '1',
+      value
+    },
 
     {
       content: 'Item two',
       key: '2',
       value
-      
+
     }
-      ]}
-      selected={selectedItems()}
-      setSelected={setSelectedItems}
-   />;
+    ]}
+    selected={selectedItems()}
+    setSelected={setSelectedItems}
+  />;
   return (
     <Page header={header} sidebar={sidebar} showSidebar={isNavOpen()}>
       <Tabs
@@ -133,17 +133,43 @@ const App: Component = () => {
             </div>
           },
           {
+            title: 'Wizards',
+            content: <div>
+              <Wizard steps={[
+                {
+                  name: 'Configure',
+                  component: <div>
+                    Configuring
+                  </div>
+                },
+                {
+                  name: 'Setup',
+                  component: <div>
+                    Setting Up
+                  </div>
+                },
+                {
+                  name: 'Install',
+                  component: <div>
+                    Installing!
+                  </div>
+                },
+              ]} >
+              </Wizard>
+            </div>
+          },
+          {
             title: 'About Modal',
             content: <div>
               <Button variant='primary' onClick={() => setShowAbout(true)}>Show about</Button>
               <AboutModal isOpen={showAbout()} productName='My Product'
-              brandImageSrc='https://www.patternfly.org/v4/images/brandImg.cd87f4d68dcba8304cf9e3192715322f.svg'
-              onClose={() => setShowAbout(false)}
-              trademark='Trademark and copyright information here'>
+                brandImageSrc='https://www.patternfly.org/v4/images/brandImg.cd87f4d68dcba8304cf9e3192715322f.svg'
+                onClose={() => setShowAbout(false)}
+                trademark='Trademark and copyright information here'>
 
                 MyPBXTOols
               </AboutModal>
-          </div>
+            </div>
           },
           {
             title: 'Lists',
@@ -162,29 +188,29 @@ const App: Component = () => {
             content: <div>
               <div>{sliderVal()}</div>
               <Slider step={4} value={sliderVal()} onChange={v => {
-              console.log('sliderVal change App', v);
-              setSliderVal(v);
-            }} customSteps={[
-              {
-                label: '0px',
-                value: 0
-              },{
-                label: '10px',
-                value: 10
-              },{
-                label: '50px',
-                value: 50
-              }
-        ]} /></div>
+                console.log('sliderVal change App', v);
+                setSliderVal(v);
+              }} customSteps={[
+                {
+                  label: '0px',
+                  value: 0
+                }, {
+                  label: '10px',
+                  value: 10
+                }, {
+                  label: '50px',
+                  value: 50
+                }
+              ]} /></div>
           },
           {
             title: 'Spinner',
             content: <div>
-            <Spinner />
+              <Spinner />
               <Spinner size='md' />
               <Spinner size='lg' />
               <Spinner size='xl' />
-              </div>
+            </div>
           },
           {
             title: 'Toggle Group',
@@ -205,7 +231,7 @@ const App: Component = () => {
                 icon: <i class="fa-solid fa-rotate-right"></i>
               },
             ]}
-            hasItem={v => items()?.includes(v)}
+              hasItem={v => items()?.includes(v)}
               setItem={(k, v) => {
                 if (v) {
                   setItems(items().add(k));
