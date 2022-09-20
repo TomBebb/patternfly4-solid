@@ -1,6 +1,4 @@
 import { JSXElement, Show, ValidComponent } from "solid-js";
-import { PropAliases } from "solid-js/web/types";
-
 export interface CheckboxProps {
     body?: JSXElement
     description?: JSXElement

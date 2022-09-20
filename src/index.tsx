@@ -31,3 +31,4 @@ export * from './HelperText';
 export * from './List';
 import '@patternfly/patternfly/patternfly.css'
 import './index.css'
+export * from './Form';

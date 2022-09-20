@@ -3,7 +3,7 @@ import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
   HelperText, HelperTextItem,
-  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner, Slider, Button, AboutModal, Accordion, Wizard
+  Page, PageToggleButton, Title, Checkbox, Tabs, Label, Input, TextArea, List, ListItem, OrderType, Caption, TableComposable, Tbody, Td, Thead, Tr, Th, ToggleGroup, Spinner, Slider, Button, AboutModal, Accordion, Wizard, Form, FieldGroupExpandable, FormFieldGroupHeader, FormGroup
 } from '..';
 import { TableDemo } from './TableDemo';
 import { Set } from 'immutable';
@@ -85,6 +85,9 @@ const App: Component = () => {
     selected={selectedItems()}
     setSelected={setSelectedItems}
   />;
+  const [formDemoName, setFormDemoName] = createSignal("Tom");
+  const [formDemoEmail, setFormDemoEmail] = createSignal("Tom@gmail.com");
+  const [formDemoUserDetails, setFormDemoUserDetails] = createSignal(false);
   return (
     <Page header={header} sidebar={sidebar} showSidebar={isNavOpen()}>
       <Tabs
@@ -101,8 +104,18 @@ const App: Component = () => {
                 checked={true}
               />
 
-              <Input placeholder='Email' value={email()} onChange={setEmail} />
-              <TextArea placeholder='Email' value={email()} onChange={setEmail} canResizeVertical />
+
+              <Form>
+                <FieldGroupExpandable isExpanded={formDemoUserDetails()} setExpanded={setFormDemoUserDetails} header={<FormFieldGroupHeader titleText="Hello, world" titleDescription=<div>Desc</div> />}>
+
+                  <FormGroup label="Name" isRequired>
+                    <Input value={formDemoName()} onChange={setFormDemoName} />
+                  </FormGroup>
+                  <FormGroup label="Email" isRequired>
+                    <Input value={formDemoEmail()} onChange={setFormDemoEmail} />
+                  </FormGroup>
+                </FieldGroupExpandable>
+              </Form>
             </div>
           },
           {
