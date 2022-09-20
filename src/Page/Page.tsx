@@ -1,23 +1,20 @@
-import { children, JSXElement } from "solid-js";
+import { children, createSignal, JSXElement } from "solid-js";
+import { createStore } from "solid-js/store";
 
 export  interface PageProps {
     children: JSXElement
     header: JSXElement
     sidebar?: JSXElement
+    showSidebar: boolean
 }
 
-export function Page(props: PageProps) {
+export function Page(raw: PageProps) {
+  const [props] = createStore(raw)
   const c= children(() => props.children);
     return <div class="pf-c-page">
       {c()}
-    <header class="pf-c-page__header">
-      <div class="pf-c-page__header-brand">
-        <div class="pf-c-page__header-brand-toggle">toggle</div>
-        <a href="#" class="pf-c-page__header-brand-link">Logo</a>
-      </div>
-      <div class="pf-c-page__header-tools">header-tools</div>
-    </header>
-    <div class="pf-c-page__sidebar">
+    {props.header}
+    <div classList={{'pf-c-page__sidebar': true, ['pf-m-'+(props.showSidebar ? 'expanded' : 'collapsed')]: true}}>
       <div class="pf-c-page__sidebar-body">pf-c-nav</div>
     </div>
     <main class="pf-c-page__main" tabindex="-1">

@@ -1,5 +1,4 @@
 import { Component, createEffect, createSignal, JSXElement } from 'solid-js';
-
 import {
   Toolbar, ToolbarContent, ToolbarItem,
   Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle,
@@ -12,10 +11,11 @@ import { createSign } from 'crypto';
 
 const App: Component = () => {
 
-  const [isNavOpen, setIsNavOpen] = createSignal(true);
+  const [isNavOpen, setIsNavOpen] = createSignal(false);
 
   const onNavToggle = () => {
-    setIsNavOpen(!isNavOpen);
+    console.log('navtoggle')
+    setIsNavOpen(!isNavOpen());
   };
 
 
@@ -86,7 +86,7 @@ const App: Component = () => {
       setSelected={setSelectedItems}
    />;
   return (
-    <Page header={header} sidebar={sidebar}>
+    <Page header={header} sidebar={sidebar} showSidebar={isNavOpen()}>
       <Tabs
         activeKey={currentTab()}
         onSelect={setCurrentTab}
